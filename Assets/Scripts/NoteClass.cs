@@ -5,7 +5,9 @@ using UnityEngine;
 public class NoteClass : MonoBehaviour
 {
 
-    Vector3 pos;
+    public Vector3 pos;
+    public string type;
+    public GameObject notetype;
 
     public NoteClass(Vector3 v)
     {
@@ -15,6 +17,10 @@ public class NoteClass : MonoBehaviour
     public Vector3 getPos()
     {
         return pos;
+    }
+    public string getType()
+    {
+        return type;
     }
 
 }

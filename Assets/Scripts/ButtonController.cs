@@ -16,6 +16,7 @@ public class ButtonController : MonoBehaviour
     public AudioSource audiosrc;
     public AudioClip notehit;
     public AudioClip patternhit;
+    public AudioClip goclip;
 
     public GameManager gameManager;
     
@@ -78,6 +79,7 @@ public class ButtonController : MonoBehaviour
         }
 
 
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -85,6 +87,12 @@ public class ButtonController : MonoBehaviour
         {
             Debug.Log("Pattern note detected");
             audiosrc.clip = patternhit;
+            audiosrc.Play();
+        }
+        if (collision.gameObject.tag == "Go Note")
+        {
+            Debug.Log("begin");
+            audiosrc.clip = goclip;
             audiosrc.Play();
         }
     }

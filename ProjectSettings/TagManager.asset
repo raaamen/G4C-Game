@@ -7,6 +7,7 @@ TagManager:
   - Note
   - NoteDetector
   - Pattern Note
+  - Go Note
   layers:
   - Default
   - TransparentFX

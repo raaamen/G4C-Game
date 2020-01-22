@@ -15,11 +15,13 @@ public class ScrollNotes : MonoBehaviour
 
     public AudioClip[] musicclips;
 
-    public NoteClass[] noteslvl1;
-    public NoteClass[] noteslvl2;
-    public NoteClass[] noteslvl3;
+    public GameObject[] noteslvl1;
+    public GameObject[] noteslvl2;
+    public GameObject[] noteslvl3;
 
     public GameObject noteObj;
+    public GameObject goNoteObj;
+    public GameObject patternNoteObj;
 
     public IEnumerator coroutine;
 
@@ -61,7 +63,7 @@ public class ScrollNotes : MonoBehaviour
     {
         foreach (var item in noteslvl1)
         {
-            Instantiate(noteObj, item.getPos(), Quaternion.identity);
+
         }
     }
 
