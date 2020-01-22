@@ -25,27 +25,20 @@ public class ButtonController : MonoBehaviour
 
         }
     }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Note")
         {
             press = true;
-            if (Input.GetKeyDown(key))
-            {
-                Destroy(collision.gameObject);
-                score++;
-            }
+            Debug.Log("can press button");
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Note")
         {
+            Debug.Log("can't press button");
             press = false;
-
         }
     }
 
