@@ -18,9 +18,16 @@ public class GameManager : MonoBehaviour
     public GameObject accessManager;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        accessManager = GameObject.Find("AccessibilityManager");
+    }
     void Start()
     {
+        
         checkAccessSettings();
+
     }
 
     // Update is called once per frame

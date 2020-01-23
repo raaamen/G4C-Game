@@ -12,7 +12,10 @@ public class MenuButtons : MonoBehaviour
     public GameObject visualOnlyMode;
     public GameObject audioOnlyMode;
     public GameObject subtitlesOn;
-
+    public GameObject XButtonParent;
+    public GameObject originalButton;
+    public GameObject accessX;
+    public GameObject creditsPanel;
 
     public string mode;
 
@@ -29,6 +32,8 @@ public class MenuButtons : MonoBehaviour
     public void onClickAccessbility()
     {
         accessMenu.SetActive(true);
+        accessX.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void onVisualSlider()
@@ -69,7 +74,11 @@ public class MenuButtons : MonoBehaviour
 
     public void onClickX()
     {
+        originalButton.SetActive(true);
+        XButtonParent.SetActive(false);
         gameObject.SetActive(false);
     }
+
+    
 
 }
