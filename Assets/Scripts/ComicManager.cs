@@ -11,6 +11,7 @@ public class ComicManager : MonoBehaviour
     public int i = 0;
     public bool comicDone;
     public GameObject continueButton;
+    public int temp;
 
     private void Awake()
     {
