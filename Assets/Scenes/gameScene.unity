@@ -1130,7 +1130,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1629063314}
   - component: {fileID: 1629063313}
-  - component: {fileID: 1629063315}
   - component: {fileID: 1629063316}
   m_Layer: 0
   m_Name: GameManager
@@ -1159,6 +1158,8 @@ MonoBehaviour:
   visualOnlyMode: 0
   subtitlesOn: 0
   accessManager: {fileID: 0}
+  levelManager: {fileID: 0}
+  notesScript: {fileID: 0}
 --- !u!4 &1629063314
 Transform:
   m_ObjectHideFlags: 0
@@ -1173,22 +1174,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1629063315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629063312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ca0290a7e524d078d35dd9331f7a57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noteslvl1: []
-  noteslvl2: []
-  noteslvl3: []
-  noteObj: {fileID: 3059704842240397424, guid: 84a550dd666c2a242a72b2a8a36f505c, type: 3}
 --- !u!82 &1629063316
 AudioSource:
   m_ObjectHideFlags: 0

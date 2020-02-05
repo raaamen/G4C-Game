@@ -61,10 +61,7 @@ public class ScrollNotes : MonoBehaviour
 
     void spawnNotes()
     {
-        foreach (var item in noteslvl1)
-        {
-
-        }
+         
     }
 
     public IEnumerator countdowntostart(int seconds)

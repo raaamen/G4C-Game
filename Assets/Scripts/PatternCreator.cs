@@ -5,9 +5,9 @@ using UnityEngine;
 public class PatternCreator : MonoBehaviour
 {
 
-    public NoteClass[] noteslvl1;
-    public NoteClass[] noteslvl2;
-    public NoteClass[] noteslvl3;
+    public GameObject[] noteslvl1;
+    public GameObject[] noteslvl2;
+    public GameObject[] noteslvl3;
 
     public GameObject noteObj;
 
@@ -23,12 +23,5 @@ public class PatternCreator : MonoBehaviour
         
     }
 
-    void loadNotes()
-    {
-        foreach (var item in noteslvl1)
-        {
-            Instantiate(noteObj, item.getPos(), Quaternion.identity);
-        }
-    }
 
 }
