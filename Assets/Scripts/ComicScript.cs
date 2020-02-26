@@ -10,6 +10,10 @@ public class ComicScript : MonoBehaviour
     Image imageComp;
     public bool comicSequenceOn;
 
+    public Image[] comicImages;
+    public int index;
+    public GameObject imageHolder;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -24,7 +28,14 @@ public class ComicScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (comicSequenceOn)
+        {
+            imageHolder.SetActive(true);   
+            if (Input.anyKeyDown)
+            {
+                
+            }
+        }
     }
 
     private void OnEnable()
