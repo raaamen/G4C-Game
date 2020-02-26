@@ -23,4 +23,8 @@ public class NoteProperty : MonoBehaviour
     {
         return notePos;
     }
+    public void setPos()
+    {
+
+    }
 }

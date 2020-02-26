@@ -19,6 +19,8 @@ public class ButtonController : MonoBehaviour
     public AudioClip goclip;
 
     public GameManager gameManager;
+
+    //name: LevelSelectedManager
     
 
     // Start is called before the first frame update
