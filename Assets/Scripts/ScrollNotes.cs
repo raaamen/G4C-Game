@@ -6,6 +6,9 @@ public class ScrollNotes : MonoBehaviour
 {
 
     public float beatTempo;
+    //level 1 is 110bpm
+    //level 2 165bpm
+    //level 3 140bpm
     public float startTimer;
 
     public bool hasStarted;
