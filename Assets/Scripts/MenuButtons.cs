@@ -23,7 +23,7 @@ public class MenuButtons : MonoBehaviour
     public void onClickStart()
     {
         GetComponent<AudioSource>().Play();
-        SceneManager.LoadScene("levelSelect");
+        SceneManager.LoadScene("gameScene");
 
         //fade to black and fade into new scene
         //basically fade out here and new scene manages fade in

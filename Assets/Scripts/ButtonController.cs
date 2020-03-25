@@ -88,12 +88,14 @@ public class ButtonController : MonoBehaviour
         if (collision.gameObject.tag == "Pattern Note")
         {
             Debug.Log("Pattern note detected");
+            Destroy(collision.gameObject);
             audiosrc.clip = patternhit;
             audiosrc.Play();
         }
         if (collision.gameObject.tag == "Go Note")
         {
             Debug.Log("begin");
+            Destroy(collision.gameObject);
             audiosrc.clip = goclip;
             audiosrc.Play();
         }

@@ -25,6 +25,7 @@ public class ScrollNotes : MonoBehaviour
     public GameObject noteObj;
     public GameObject goNoteObj;
     public GameObject patternNoteObj;
+    public GameObject GameManager;
 
     public IEnumerator coroutine;
 
@@ -33,10 +34,28 @@ public class ScrollNotes : MonoBehaviour
     private void Awake()
     {
         coroutine = countdowntostart(3);
+        beatTempo = 110;
+        beatTempo = beatTempo / 60f;
     }
     void Start()
     {
+        /*switch (levelSelect)
+        {
+            case 1:
+                beatTempo = 110;
+                music.clip = musicclips[0];
+                break;
+            case 2:
+                beatTempo = 165;
+                music.clip = musicclips[1];
+                break;
+            case 3:
+                beatTempo = 140;
+                music.clip = musicclips[2];
+                break;
+        }
         beatTempo = beatTempo / 60f;
+        **/
     }
 
     // Update is called once per frame
@@ -56,15 +75,14 @@ public class ScrollNotes : MonoBehaviour
         }
         else
         {
-            spawnNotes();
+            music.clip = musicclips[0];
+            if (!music.isPlaying)
+            {
+                music.Play();
+            }
             transform.position -= new Vector3(0f, beatTempo * Time.deltaTime, 0f);
         }
         
-    }
-
-    void spawnNotes()
-    {
-         
     }
 
     public IEnumerator countdowntostart(int seconds)

@@ -25,6 +25,6 @@ public class NoteProperty : MonoBehaviour
     }
     public void setPos()
     {
-
+        notePos = transform.position;
     }
 }
