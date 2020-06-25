@@ -24,7 +24,7 @@ public class AudienceBounce : MonoBehaviour
     {
         if (running == false)
         {
-            StartCoroutine("counter");
+            counter();
         }
         
     }

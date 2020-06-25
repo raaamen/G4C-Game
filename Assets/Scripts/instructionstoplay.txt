@@ -1,0 +1,9 @@
+You will be given a pattern that you must tap and repeat.
+Repeat the pattern by tapping the spacebar.
+If you successfully repeat the pattern, you receive points!
+If you are playing in visual only mode: watch the pattern that comes from the speakers.
+Watch the white beats, and when you see the green beat, that's your signal to repeat the beat!
+If you are playing in audio only mode, listen to the beat given
+When you hear "go!", repeat the beat!
+If you are playing without these modes, use both cues to repeat the patterns!
+Good luck, and get groovin'!

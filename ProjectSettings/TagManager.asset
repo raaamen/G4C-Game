@@ -8,6 +8,7 @@ TagManager:
   - NoteDetector
   - Pattern Note
   - Go Note
+  - End Signal
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Audience
+  - DJ
+  - Booth/Speakers
   - 
   - 
   - 

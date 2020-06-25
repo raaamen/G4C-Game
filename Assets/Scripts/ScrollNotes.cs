@@ -1,61 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ScrollNotes : MonoBehaviour
 {
 
     public float beatTempo;
-    //level 1 is 110bpm
-    //level 2 165bpm
-    //level 3 140bpm
-    public float startTimer;
 
     public bool hasStarted;
-    public bool timerCount;
 
     public AudioSource music;
 
     public AudioClip[] musicclips;
 
-    public GameObject[] noteslvl1;
-    public GameObject[] noteslvl2;
-    public GameObject[] noteslvl3;
-
-    public GameObject noteObj;
-    public GameObject goNoteObj;
-    public GameObject patternNoteObj;
     public GameObject GameManager;
 
     public IEnumerator coroutine;
+
+    public GameObject countdowntext;
+    public GameObject countdownnumtext;
+
+    public bool canStart = false;
 
 
     // Start is called before the first frame update
     private void Awake()
     {
-        coroutine = countdowntostart(3);
+        coroutine = countdowntostart();
         beatTempo = 110;
         beatTempo = beatTempo / 60f;
     }
     void Start()
     {
-        /*switch (levelSelect)
-        {
-            case 1:
-                beatTempo = 110;
-                music.clip = musicclips[0];
-                break;
-            case 2:
-                beatTempo = 165;
-                music.clip = musicclips[1];
-                break;
-            case 3:
-                beatTempo = 140;
-                music.clip = musicclips[2];
-                break;
-        }
-        beatTempo = beatTempo / 60f;
-        **/
+        
     }
 
     // Update is called once per frame
@@ -66,16 +45,18 @@ public class ScrollNotes : MonoBehaviour
 
         if (!hasStarted)
         {
-            if (Input.anyKeyDown)
+            if (canStart)
             {
                 Debug.Log("attempting to start");
                 StartCoroutine(coroutine);
                 Debug.Log(hasStarted);
+                canStart = false;
             }
         }
         else
         {
             music.clip = musicclips[0];
+            
             if (!music.isPlaying)
             {
                 music.Play();
@@ -85,11 +66,22 @@ public class ScrollNotes : MonoBehaviour
         
     }
 
-    public IEnumerator countdowntostart(int seconds)
+    public IEnumerator countdowntostart()
     {
         Debug.Log("Counting down 3 seconds");
-        yield return new WaitForSeconds(seconds);
+        countdowntext.SetActive(true);
+        countdownnumtext.SetActive(true);
+        countdownnumtext.GetComponent<TextMeshProUGUI>().text = "3";
+        yield return new WaitForSeconds(1);
+        countdownnumtext.GetComponent<TextMeshProUGUI>().text = "2";
+        yield return new WaitForSeconds(1);
+        countdownnumtext.GetComponent<TextMeshProUGUI>().text = "1";
+        yield return new WaitForSeconds(1);
+        countdownnumtext.GetComponent<TextMeshProUGUI>().text = "Start!";
+        countdownnumtext.SetActive(false);
+        countdowntext.SetActive(false);
         hasStarted = true;
+        
     }
 
 }

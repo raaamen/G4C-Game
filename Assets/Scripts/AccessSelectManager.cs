@@ -8,6 +8,9 @@ public class AccessSelectManager : MonoBehaviour
 
     public bool menuOpen;
 
+    public GameObject titleText;
+    public GameObject othertext;
+
     private int _MenuIndex;
     public int MenuIndex
     {
@@ -88,6 +91,8 @@ public class AccessSelectManager : MonoBehaviour
     {
         if (menuOpen == false)
         {
+            titleText.SetActive(true);
+            othertext.SetActive(true);
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 MenuIndex++;
@@ -106,6 +111,8 @@ public class AccessSelectManager : MonoBehaviour
         }
         else if (menuOpen)
         {
+            titleText.SetActive(false);
+            othertext.SetActive(false);
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 AccessIndex++;

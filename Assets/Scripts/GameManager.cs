@@ -20,24 +20,24 @@ public class GameManager : MonoBehaviour
     public bool subtitlesOn;
 
     public GameObject accessManager;
-    public GameObject levelManager;
+    public GameObject buttonControl;
     public ScrollNotes notesScript;
+    public ButtonController buttonscript;
+    public GameObject visualblock;
 
     // Start is called before the first frame update
 
     private void Awake()
     {
-
+        buttonscript = buttonControl.GetComponent<ButtonController>();
         accessManager = GameObject.Find("AccessibilityManager");
-        levelManager = GameObject.Find("LevelSelectedManager");
         notesScript = GetComponent<ScrollNotes>();
+
         
     }
     void Start()
     {
-        
         checkAccessSettings();
-
     }
 
     // Update is called once per frame
@@ -50,53 +50,22 @@ public class GameManager : MonoBehaviour
     {
         audioOnlyMode = accessManager.GetComponent<AccessManager>().audioOnlyMode;
         visualOnlyMode = accessManager.GetComponent<AccessManager>().visualOnlyMode;
-        subtitlesOn = accessManager.GetComponent<AccessManager>().subtitlesOn;
-    }
-
-    public void checkLvlLoad()
-    {
-        switch (levelManager.GetComponent<LevelSelectManage>().levelSelected)
+        if (audioOnlyMode)
         {
-            case 1:
-                loadLevel1();
-                break;
-            case 2:
-                loadLevel2();
-                break;
-            case 3:
-                loadLevel3();
-                break;
+            visualblock.SetActive(true);
+        }
+        if (visualOnlyMode)
+        {
+            buttonscript.notehit = null;
+            buttonscript.goclip = null;
+            buttonscript.patternhit = null;
+            notesScript.musicclips[0] = null;
         }
     }
+
 
     public void updateScore()
     {
         scoretxt.text = "Score: "+score;
     }
-
-    public void loadLevel1()
-    {
-        foreach (var item in notesScript.noteslvl1)
-        {
-            Vector3 spawnPos = item.GetComponent<NoteProperty>().getPos();
-            Instantiate(item, spawnPos, Quaternion.identity);
-        }
-    }
-    public void loadLevel2()
-    {
-        foreach (var item in notesScript.noteslvl2)
-        {
-            Vector3 spawnPos = item.GetComponent<NoteProperty>().getPos();
-            Instantiate(item, spawnPos, Quaternion.identity);
-        }
-    }
-    public void loadLevel3()
-    {
-        foreach (var item in notesScript.noteslvl3)
-        {
-            Vector3 spawnPos = item.GetComponent<NoteProperty>().getPos();
-            Instantiate(item, spawnPos, Quaternion.identity);
-        }
-    }
-
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class ButtonController : MonoBehaviour
 
     public GameManager gameManager;
 
-    //name: LevelSelectedManager
+    public GameObject particle1;
+    public GameObject particle2;
     
 
     // Start is called before the first frame update
@@ -39,30 +41,7 @@ public class ButtonController : MonoBehaviour
     {
 
     }
-    /**private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Note")
-        {
-            press = true;
-            Debug.Log("can press button");
-
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("button clicked");
-            audio.Play();
-            gameManager.score += 5;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Note")
-        {
-            Debug.Log("can't press button");
-            press = false;
-        }
-    }
-    */   
+  
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -73,10 +52,17 @@ public class ButtonController : MonoBehaviour
             if (Input.GetKeyDown(key))
             {
                 Debug.Log("key pressed");
+                ParticleSystem.MainModule main = particle1.GetComponent<ParticleSystem>().main;
+                main.startColor = Color.blue;
+                ParticleSystem.MainModule main2 = particle2.GetComponent<ParticleSystem>().main;
+                main2.startColor = Color.blue;
+                particle1.GetComponent<ParticleSystem>().Play();
+                particle2.GetComponent<ParticleSystem>().Play();
                 Destroy(collision.gameObject);
                 audiosrc.clip = notehit;
                 audiosrc.Play();
                 gameManager.score += 5;
+                gameManager.updateScore();
             }
         }
 
@@ -88,6 +74,12 @@ public class ButtonController : MonoBehaviour
         if (collision.gameObject.tag == "Pattern Note")
         {
             Debug.Log("Pattern note detected");
+            ParticleSystem.MainModule main = particle1.GetComponent<ParticleSystem>().main;
+            main.startColor = Color.white;
+            ParticleSystem.MainModule main2 = particle2.GetComponent<ParticleSystem>().main;
+            main2.startColor = Color.white;
+            particle1.GetComponent<ParticleSystem>().Play();
+            particle2.GetComponent<ParticleSystem>().Play();
             Destroy(collision.gameObject);
             audiosrc.clip = patternhit;
             audiosrc.Play();
@@ -95,9 +87,20 @@ public class ButtonController : MonoBehaviour
         if (collision.gameObject.tag == "Go Note")
         {
             Debug.Log("begin");
+            ParticleSystem.MainModule main = particle1.GetComponent<ParticleSystem>().main;
+            main.startColor = Color.green;
+            ParticleSystem.MainModule main2 = particle2.GetComponent<ParticleSystem>().main;
+            main2.startColor = Color.green;
+            particle1.GetComponent<ParticleSystem>().Play();
+            particle2.GetComponent<ParticleSystem>().Play();
             Destroy(collision.gameObject);
             audiosrc.clip = goclip;
             audiosrc.Play();
+        }
+        if (collision.gameObject.tag =="End Signal")
+        {
+            
+            SceneManager.LoadScene("endLevelScene");
         }
     }
 

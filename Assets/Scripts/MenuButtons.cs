@@ -23,7 +23,7 @@ public class MenuButtons : MonoBehaviour
     public void onClickStart()
     {
         GetComponent<AudioSource>().Play();
-        SceneManager.LoadScene("gameScene");
+        SceneManager.LoadScene("introComicScene");
 
         //fade to black and fade into new scene
         //basically fade out here and new scene manages fade in
@@ -77,6 +77,15 @@ public class MenuButtons : MonoBehaviour
         originalButton.SetActive(true);
         XButtonParent.SetActive(false);
         gameObject.SetActive(false);
+    }
+
+    public void onClickQuit()
+    {
+        Application.Quit();
+    }
+    public void OnClickRetry()
+    {
+        SceneManager.LoadScene("gameScene");
     }
 
     
